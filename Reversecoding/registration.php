@@ -133,7 +133,7 @@
         </div>
         <div class="md-form">
             <i class="fa fa-pencil prefix grey-text"></i>
-            <textarea type="number" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;"></textarea>
+            <textarea type="number" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;"/></textarea>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
 
@@ -158,67 +158,59 @@
 
 
     <!-- Form contact -->
-    <script type="text/javascript">
+   <script type="text/javascript">
 
-        $("#alertbox").hide() ;
-
-        function register_clicked(e)
+        function register_clicked()
         {
             var mem1_email = $("input[name=mem1_email").value ;
             var mem1_USN = $("input[name=mem1_USN").value ;
             var mem1_contact = $("input[name=mem1_contact").value ;
             var mem1_name= $("input[name=mem1_name").value ;
+
+
+
             var mem2_email = $("input[name=mem2_email").value ;
             var mem2_USN = $("input[name=mem2_USN").value ;
             var mem2_contact = $("input[name=mem2_contact").value ;
             var mem2_name= $("input[name=mem2_name").value ;
 
+            if(!mem1_email)
+                {alert("Email Address of Member 1 Invalid !") ;return ;}
 
-            $('.contactform').each(function(e)
+
+             if(!mem2_email)
+                {alert("Email Address of Member 2 Invalid !") ;return ;}
+
+
+            r = /[a-zA-Z0-9])/;
+            if(!r.test(mem1_USN))
             {
-                if (mem1_email.length && mem1_contact.length && mem1_name.length && mem1_USN.length && mem2_contact.length && mem2_email.length && mem2_USN.length && mem2_name.length) {
-                    console.log($(this).val()) ;
-
-                    $(".alert-danger").show() ;
-                }
-
-                else{
-
-                    if(!validateEmail(mem1_email))
-                    { $(".alert-danger").html("Email Address of Member 2 Invalid ! ") ; return ; }
-
-                    if(!validateEmail(mem2_email))
-                    {$(".alert-danger").html("Email Address of Member 2 Invalid !") ;return ;}
-                    r = /[a-zA-Z0-9]/ ;
-                    if(!r.test(mem1_USN))
-                    {
-                        alert("Invalid USN number of member 1 ") ;
-                    }
-                    if(!r.test(mem2_USN))
-                    {
-                        alert("Invalid USN number of member 2") ;
-                    }
-                }
-                function validateEmail(email) {
-                    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                    return re.test(email);
-                }
-
+                alert("Invalid USN number of member 1 ") ; 
             }
-            )
-    }
+
+            if(!r.test(mem2_USN))
+            {
+                alert("Invalid USN number of member 2") ;
+            }
+
+       }
+
+
+
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+} 
 
     </script>
 
-
-<!---->
-<!--    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>-->
-<!--    <!-- Bootstrap tooltips -->
-<!--    <script type="text/javascript" src="js/popper.min.js"></script>-->
-<!--    <!-- Bootstrap core JavaScript -->
-<!--    <script type="text/javascript" src="js/bootstrap.js"></script>-->
-<!--    <!-- MDB core JavaScript -->
-<!--    <script type="text/javascript" src="js/mdb.js"></script>-->
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.js"></script>
 </body>
 
 
