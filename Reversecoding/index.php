@@ -31,9 +31,9 @@
    <div class="jumbotron container">
  
      <!--  <img src="C:\xampp\htdocs\img\decoder.jpg" class="img-fluid center-block pagination-centered" width="350" height="350" >-->
-       <h1 class="h1-responsive animated fadeIn" >REVERSE CODING</h1>
-       <h1>Rules</h1>
-       <ul>
+       <h1 class="h1-responsive " id="heading_reversecode">REVERSE CODING</h1>
+       <h1 id="rules">Rules</h1>
+       <ul id="rules_list">
          <li>mihbjnbh</li>
          <li>mihbjnbh</li>
          <li>mihbjnbh</li>
@@ -50,11 +50,16 @@
 
 
 
-       <button type="button" id="register_btn" class="btn btn-primary">REGISTER</button>
+       <button type="button" id="register_btn" class="btn btn-primary" onclick="loadregisterpage()">REGISTER</button>
 
        <script>
 
-           button = $("#register_btn").style.display="none" ;
+           function loadregisterpage()
+           {
+
+               window.location = "registration.php" ;
+
+           }
 
 
        </script>
