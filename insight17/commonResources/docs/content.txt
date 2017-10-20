@@ -1,0 +1,20 @@
+Terms and Conditions
+=>	The hackathon is of 12 hours. 
+=>	Online registrations will be closed on 8th October. 
+=>	Team should have minimum of 2 and maximum of 3 members. 
+=>	Each member should provide their details at the time registration. 
+=>	An abstract of about 500 words must be submitted by each team. 
+=>	A team is allowed to submit solutions to multiple problems; however, a team if selected will be selected for the one best solution out of the all solutions they have proposed.
+=>	A mentor will be allotted to each team who will guide them throughout the competition. 
+=>	Teams must present their ideas to respective mentors every 2 hours and progress will be evaluated based on that presentation. 
+=>	Every team must disclose their team name as well as team leader’s name at the time of registration. 
+=>	No hardware kit will be provided. 
+=>	There will be a limit on the number of entries accepted for each problem statement. We would consider the first 6 entries for each problem statements for the first round of screening.
+=>	inSight will begin on 14th 2017 08:00 AM and will end at 14th October 2017 8:00 PM. 
+=>	Internet facility will be provided for 12 hours. 
+=>	Reporting time for inSight will be 7:45 am. 
+=>	All communication will be sent to your primary email submitted at the time of registration. 
+=>	Certificate for participation will be provided to all participants. 
+=>	Clearly specify the email ids and mobile numbers of all team members. 
+=>	You are expected to come up with innovative ideas. Any idea that has been copied from somewhere will be disqualified. 
+=>	The prize money would be given to winning teams only on submitting the complete working product.
