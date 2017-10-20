@@ -7,6 +7,13 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Material Design Bootstrap</title>
     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
 
     <?php
     require_once "../commonResources/includeScripts.php" ;
@@ -73,7 +80,7 @@
 <!-- Form contact -->
 <div class="container" class="text-center">
 
-    <form name='contactform'>
+    <form name='contactform' action="connect_to_database.php" method="POST">
 
         <div class="text-center">
             <h2>Register</h2>
