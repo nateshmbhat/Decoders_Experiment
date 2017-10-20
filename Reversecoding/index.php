@@ -10,6 +10,7 @@
     <title>DeCoders - inSight 2K17</title>
 	<link rel="icon" href="../commonResources/img/title.png">
     <?php include('../commonResources/includeCSS.php');?>
+    <?php require_once "../commonResources/includeScripts.php" ?>
 
 </head>
 <body>
@@ -40,14 +41,26 @@
          <li>mihbjnbh</li>
        </ul>
  
- 
        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
            to featured content or information.</p>
        <hr class="my-2">
        <p>It uses utility classes for typography and spacing to space content out within the larger
            container.
        </p>
-       <button type="button" class="btn btn-yellow">REGISTER</button>
+
+
+
+       <button type="button" id="register_btn" class="btn btn-primary">REGISTER</button>
+
+       <script>
+
+           button = $("#register_btn").style.display="none" ;
+
+
+       </script>
+
+
+
    </div>
 
 
