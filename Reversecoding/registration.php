@@ -73,7 +73,7 @@
 <!-- Form contact -->
 <div class="container" class="text-center">
 
-    <form name='contactform' action="index.php" method="POST">
+    <form name='contactform'>
 
         <div class="text-center">
             <h2>Register</h2>
@@ -100,7 +100,7 @@
 
         <div class="md-form">
             <i class="fa fa-pencil prefix grey-text"></i>
-            <input type="text" id="form8" name="mem1_contact" class="md-textarea" style="height: 50;width: 500px; padding: 2px;""/>
+            <input type="text" id="form8" name="mem1_contact" class="md-textarea" style="height:50px;width: 500px; padding: 2px;"/>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
 
@@ -125,12 +125,22 @@
         </div>
         <div class="md-form">
             <i class="fa fa-pencil prefix grey-text"></i>
-            <textarea type="text" id="form8" name="mem2_contact" class="md-textarea" style="height: 50;width: 500px; padding: 2px;""></textarea>
+            <textarea type="text" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;"></textarea>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
 
+
+        <div>
+
+            <div id="alertbox" class="alert shake alert-danger" style="font-size:15pt;display:none">
+                <strong>Error !</strong> All the fields must be filled before submitting.
+            </div>
+
+        </div>
+
+
         <div >
-            <button class="btn btn-unique" onclick="register_clicked()">Register<i class="fa fa-paper-plane-o ml-1"></i></button>
+            <button class="btn btn-unique" onclick="register_clicked()" style="color:black;"> Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
         </div>
 
     </form>
@@ -139,10 +149,12 @@
 
 
 
-
     <!-- Form contact -->
     <script type="text/javascript">
-        function register_clicked()
+
+        $("#alertbox").hide() ;
+
+        function register_clicked(e)
         {
             var mem1_email = $("input[name=mem1_email").value ;
             var mem1_USN = $("input[name=mem1_USN").value ;
@@ -152,33 +164,51 @@
             var mem2_USN = $("input[name=mem2_USN").value ;
             var mem2_contact = $("input[name=mem2_contact").value ;
             var mem2_name= $("input[name=mem2_name").value ;
-            if(!mem1_email)
-            {alert("Email Address of Member 1 Invalid !") ;return ;}
-            if(!mem2_email)
-            {alert("Email Address of Member 2 Invalid !") ;return ;}
-            r = /[a-zA-Z0-9])/;
-            if(!r.test(mem1_USN))
+
+
+            $('form[name=contactform]').each(function(e)
             {
-                alert("Invalid USN number of member 1 ") ;
+                if ($(this).val().length==0) {
+
+                    $(".alert-danger").show() ;
+                }
+
+                else{
+
+                    if(!validateEmail(mem1_email))
+                    { $(".alert-danger").html("Email Address of Member 2 Invalid ! ") ; return ; }
+
+                    if(!validateEmail(mem2_email))
+                    {$(".alert-danger").html("Email Address of Member 2 Invalid !") ;return ;}
+                    r = /[a-zA-Z0-9]/ ;
+                    if(!r.test(mem1_USN))
+                    {
+                        alert("Invalid USN number of member 1 ") ;
+                    }
+                    if(!r.test(mem2_USN))
+                    {
+                        alert("Invalid USN number of member 2") ;
+                    }
+                }
+                function validateEmail(email) {
+                    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    return re.test(email);
+                }
+
             }
-            if(!r.test(mem2_USN))
-            {
-                alert("Invalid USN number of member 2") ;
-            }
-        }
-        function validateEmail(email) {
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email);
-        }
+    }
+
     </script>
 
-    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.js"></script>
+
+<!---->
+<!--    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>-->
+<!--    <!-- Bootstrap tooltips -->
+<!--    <script type="text/javascript" src="js/popper.min.js"></script>-->
+<!--    <!-- Bootstrap core JavaScript -->
+<!--    <script type="text/javascript" src="js/bootstrap.js"></script>-->
+<!--    <!-- MDB core JavaScript -->
+<!--    <script type="text/javascript" src="js/mdb.js"></script>-->
 </body>
 
 
