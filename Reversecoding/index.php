@@ -140,15 +140,15 @@
 <li style="list-style-type: circle">The teams will be disqualified if any kind of cheating is found.
 				</li>
 			<li style="list-style-type: circle">Decisions by our team will be final.</li>
-
-			<li style="list-style-type: circle; color:red;"><b>Please download the detailed instructions about the event from the link below.</b></li>
+			<br>
+			<li style="list-style-type: circle; color:red;">Please download the detailed instructions about the event from the link below.</li>
 			<!-- <li style="list-style-type: circle">You can register and view the problem statemets in the link below.</li> -->
 <!-- <li style="list-style-type: circle">We encourage students to submit proposals for more than one problems. This increases your chances of selection.</li> -->
 		</ol>
 	<br><br>
 	<center>
 	<a href="../commonResources/docs/instructions.pdf" download><button type="button" class="btn btn-primary">Download instructions</button></a>
-	<button type="button" class="btn btn-primary" onclick="location.href='../Problem';">Register</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='registration.php';">Register</button>
 <!--  <button type="button" class="btn btn-primary" onclick="location.href='indexTemp.php';">View problem statements and register</button> -->
 	</center>
 
