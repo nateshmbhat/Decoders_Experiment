@@ -80,7 +80,7 @@
 <!-- Form contact -->
 <div class="container" class="text-center">
 
-    <form name='contactform' action="connect_to_database.php" method="POST">
+    <form class='contactform' name='contactform' action="connect_to_database.php" method="POST">
 
         <div class="text-center">
             <h2>Register</h2>
@@ -90,12 +90,12 @@
         <div class="md-form">
             <i class="fa fa-user prefix grey-text"></i>
             <input name="mem1_name" type="text" id="form3" style="width: 500px; padding: 2px;" class="form-control">
-            <label for="form3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your name</label>
+            <label for="form3">Your name</label>
         </div>
 
         <div class="md-form">
             <i class="fa fa-envelope prefix grey-text"></i>
-            <input type="text" name="mem1_email" id="form2" style="width: 500px; padding: 2px;" class="form-control">
+            <input type="email" name="mem1_email" id="form2" style="width: 500px; padding: 2px;" class="form-control">
             <label for="form2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your email</label>
         </div>
 
@@ -107,13 +107,14 @@
 
         <div class="md-form">
             <i class="fa fa-pencil prefix grey-text"></i>
-            <input type="text" id="form8" name="mem1_contact" class="md-textarea" style="height:50px;width: 500px; padding: 2px;"/>
+            <input type="number" id="form8" name="mem1_contact" class="md-textarea" style="height:50px;width: 500px; padding: 2px;"/>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
 
         <!-- Form contact -->
 </div>
-<div class="container" class="text-center"><form>
+<div class="container" class="text-center">
+    <form class="contactform">
         <p class="h5 mb-4">                  Member 2</p>
         <div class="md-form">
             <i class="fa fa-user prefix grey-text"></i>
@@ -122,7 +123,7 @@
         </div>
         <div class="md-form">
             <i class="fa fa-envelope prefix grey-text"></i>
-            <input type="text" id="form2" name="mem2_email" style="width: 500px; padding: 2px;" class="form-control">
+            <input type="email" id="form2" name="mem2_email" style="width: 500px; padding: 2px;" class="form-control">
             <label for="form2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your email</label>
         </div>
         <div class="md-form" >
@@ -132,14 +133,14 @@
         </div>
         <div class="md-form">
             <i class="fa fa-pencil prefix grey-text"></i>
-            <textarea type="text" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;"></textarea>
-            <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
+            <textarea type="number" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;"></textarea>
+            <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
 
 
         <div>
 
-            <div id="alertbox" class="alert shake alert-danger" style="font-size:15pt;display:none">
+            <div id="alertbox" class="alert shake alert-danger" >
                 <strong>Error !</strong> All the fields must be filled before submitting.
             </div>
 
@@ -147,7 +148,7 @@
 
 
         <div >
-            <button class="btn btn-unique" onclick="register_clicked()" style="color:black;"> Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
+            <button type="button" class="btn btn-unique" onclick="register_clicked()" style="color:black;"> Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
         </div>
 
     </form>
@@ -173,9 +174,10 @@
             var mem2_name= $("input[name=mem2_name").value ;
 
 
-            $('form[name=contactform]').each(function(e)
+            $('.contactform').each(function(e)
             {
-                if ($(this).val().length==0) {
+                if (mem1_email.length && mem1_contact.length && mem1_name.length && mem1_USN.length && mem2_contact.length && mem2_email.length && mem2_USN.length && mem2_name.length) {
+                    console.log($(this).val()) ;
 
                     $(".alert-danger").show() ;
                 }
