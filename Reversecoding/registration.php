@@ -107,14 +107,13 @@
 
         <div class="md-form">
             <i class="fa fa-pencil prefix grey-text"></i>
-            <input type="number" id="form8" name="mem1_contact" class="md-textarea" style="height:50px;width: 500px; padding: 2px;"/>
+            <input type="text" id="form8" name="mem1_contact" class="md-textarea" style="height:50px;width: 500px; padding: 2px;"/>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
 
         <!-- Form contact -->
 </div>
 <div class="container" class="text-center">
-    <form class="contactform">
         <p class="h5 mb-4">                  Member 2</p>
         <div class="md-form">
             <i class="fa fa-user prefix grey-text"></i>
@@ -133,22 +132,20 @@
         </div>
         <div class="md-form">
             <i class="fa fa-pencil prefix grey-text"></i>
-            <textarea type="number" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;"/></textarea>
+            <textarea type="text" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;""/></textarea>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
-
-
-        <div>
+        <!--<div>
 
             <div id="alertbox" class="alert shake alert-danger" >
                 <strong>Error !</strong> All the fields must be filled before submitting.
             </div>
 
-        </div>
+        </div>-->
 
 
         <div >
-            <button type="button" class="btn btn-unique" onclick="register_clicked()" style="color:black;"> Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
+            <button class="btn btn-unique" onclick="register_clicked()"> Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
         </div>
 
     </form>
