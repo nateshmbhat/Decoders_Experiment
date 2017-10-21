@@ -22,6 +22,12 @@
     ?>
 
 
+<!--     INCLUDING THE REQUIRED GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Alike|Bitter|Cinzel|Nosifer|Roboto+Slab" rel="stylesheet">
+<!---->
+
+
+
 </head>
 
 
@@ -83,9 +89,10 @@
     <form class='contactform' name='contactform' action="registration.php" method="POST">
 
         <div class="text-center">
-            <h2>Register</h2>
+            <h2 style="font-family: bitter;">Register</h2><br><br>
         </div>
-        <p class="h5 mb-4">Member 1</p>
+        <p class="h5 mb-4 text-center" style="font-family: bitter;font-size:200%;">                  Member 1</p>
+
 
         <div class="md-form">
             <i class="fa fa-user prefix grey-text"></i>
@@ -114,7 +121,7 @@
         <!-- Form contact -->
 </div>
 <div class="container" class="text-center">
-        <p class="h5 mb-4">                  Member 2</p>
+        <p class="h5 mb-4 text-center" style="font-family: bitter;font-size:200%;">                  Member 2</p>
         <div class="md-form">
             <i class="fa fa-user prefix grey-text"></i>
             <input type="text" id="form3" name="mem2_name" style="width: 500px; padding: 2px;" class="form-control">
@@ -135,7 +142,16 @@
             <textarea type="text" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;""/></textarea>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
+
+
+
+
+    <div>
+        <button class="btn btn-unique" onclick="register_clicked()"> Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
+    </div>
+
 </div>
+
         <!--<div>
 
             <div id="alertbox" class="alert shake alert-danger" >
@@ -152,65 +168,11 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.js"></script>
     <br>
-    <strong>
-    <?php // ALL DETAILS of FORM ARE FETCHED INTO THESE VARIABLES.
-    error_reporting(0);
-    $mem1_email = $_POST['mem1_email'] ; 
-    $mem1_USN = $_POST['mem1_USN']; 
-    $mem1_contact = $_POST['mem1_contact'] ; 
-    $mem1_name = $_POST['mem1_name'] ;
-
-    $mem2_email = $_POST['mem2_email'] ; 
-    $mem2_USN = $_POST['mem2_USN']; 
-    $mem2_contact = $_POST['mem2_contact'] ; 
-    $mem2_name = $_POST['mem2_name'] ;
-
-//-->>
-
-    if(!empty($mem1_name) && !empty($mem1_contact) && !empty($mem1_USN) && !empty($mem1_email) && !empty($mem2_name) && !empty($mem2_USN) && !empty($mem2_contact) && !empty($mem2_email)){
-        $username = 'root';
-        $password = '';
-        $db = 'Reverse_Coding';
-        if (!filter_var($mem1_email, FILTER_VALIDATE_EMAIL)) {
-           echo "<p>Invalid Email address for Member 1</p>" ; 
-            exit(0); 
-        }   
-        if (!filter_var($mem2_email, FILTER_VALIDATE_EMAIL)) {
-            echo "<p>Invalid Email address for Member 2</p>" ; 
-            exit(1) ; 
-        }
-        $conn = mysqli_connect('localhost',$username,$password,$db) or die('unable to connect');
-        if($conn)
-        $sql = "insert into register (mem1_email,mem1_USN,mem1_contact,mem1_name,mem2_email,mem2_USN,mem2_contact,mem2_name) values ('$mem1_email','$mem1_USN','$mem1_contact','$mem1_name','$mem2_email','$mem2_USN','$mem2_contact','$mem2_name')";
-        $query=mysqli_query($conn,$sql);
-        if($query)
-            echo 'Successfully Registered';
-        else
-            echo 'Your USN is already Registered!' ;
-        mysqli_close($conn);
-    }
-    else
-        echo('One or More required fields are empty');
-
-    
-    
-
-    
-    //EMAIL VALIDATION
-
-        //-->>
 
 
- ?> 
-    </strong>
 
     <br><br>
 
-
-
-        <div >
-            <button class="btn btn-unique" onclick="register_clicked()"> Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
-        </div>
 
     </form>
 
@@ -236,7 +198,7 @@
 
 
 
-            if !(mem1_email.length && mem1_contact.length && mem1_name.length && mem1_USN.length && mem2_contact.length && mem2_email.length && mem2_USN.length && mem2_name.length) {
+            if (!(mem1_email.length && mem1_contact.length && mem1_name.length && mem1_USN.length && mem2_contact.length && mem2_email.length && mem2_USN.length && mem2_name.length)) {
                     console.log($(this).val()) ;
 
                     $(".alert-danger").show() ;
@@ -265,9 +227,6 @@
                     return re.test(email);
                 }
     }
-
-}
-
 
 
 function validateEmail(email) {
