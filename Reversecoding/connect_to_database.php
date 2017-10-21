@@ -24,8 +24,6 @@
             exit(1) ; 
         }
         $conn = mysqli_connect('localhost',$username,$password,$db) or die('unable to connect');
-        if($conn)
-          echo 'successfully connected to the DB<br>';
         $sql = "insert into register (mem1_email,mem1_USN,mem1_contact,mem1_name,mem2_email,mem2_USN,mem2_contact,mem2_name) values ('$mem1_email','$mem1_USN','$mem1_contact','$mem1_name','$mem2_email','$mem2_USN','$mem2_contact','$mem2_name')";
         $query=mysqli_query($conn,$sql);
         if($query)
