@@ -86,7 +86,7 @@
 <!-- Form contact -->
 <div class="container" class="text-center">
 
-    <form class='contactform' name='contactform' action="registration.php" method="POST">
+    <form class='contactform' action="connect_to_database.php" id="registrationform" method="POST" onsubmit="return register_clicked();">
 
         <div class="text-center">
             <h2 style="font-family: bitter;">Register</h2><br><br>
@@ -121,7 +121,7 @@
         <!-- Form contact -->
 </div>
 <div class="container" class="text-center">
-        <p class="h5 mb-4 text-center" style="font-family: bitter;font-size:200%;">                  Member 2</p>
+        <p class="h5 mb-5 text-center" style="font-family: bitter;font-size:200%;">                  Member 2</p>
         <div class="md-form">
             <i class="fa fa-user prefix grey-text"></i>
             <input type="text" id="form3" name="mem2_name" style="width: 500px; padding: 2px;" class="form-control">
@@ -139,26 +139,28 @@
         </div>
         <div class="md-form">
             <i class="fa fa-pencil prefix grey-text"></i>
-            <textarea type="text" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;""/></textarea>
+            <input type="text" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;"/>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
 
 
+    <div>
+
+        <div id="alertbox" class="alert shake alert-danger" >
+            <strong>Error !</strong> All the fields must be filled before submitting.
+        </div>
+
+    </div>
+
 
 
     <div>
-        <button class="btn btn-unique" onclick="register_clicked()"> Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
+        <button class="btn btn-unique" type="submit" > Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
     </div>
 
 </div>
 
-        <!--<div>
 
-            <div id="alertbox" class="alert shake alert-danger" >
-                <strong>Error !</strong> All the fields must be filled before submitting.
-            </div>
-
-        </div>-->
 
          <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
     <!-- Bootstrap tooltips -->
@@ -183,43 +185,59 @@
     <!-- Form contact -->
    <script type="text/javascript">
 
+       $("#alertbox").hide() ;
+
+
         function register_clicked()
         {
-            var mem1_email = $("input[name=mem1_email]").val() ;
+            $("#alertbox").hide() ;
 
-            var mem1_USN = $("input[name=mem1_USN]").val()
+            var mem1_email = $("input[name=mem1_email]").val().trim() ;
+
+            var mem1_USN = $("input[name=mem1_USN]").val().trim()
             
-            var mem1_contact = $("input[name=mem1_contact]").val() ;
-            var mem1_name= $("input[name=mem1_name]").val() ;
-            var mem2_email = $("input[name=mem2_email]").val() ;
-            var mem2_USN = $("input[name=mem2_USN]").val() ;
-            var mem2_contact = $("input[name=mem2_contact]").val() ;
-            var mem2_name= $("input[name=mem2_name]").val() ;
+            var mem1_contact = $("input[name=mem1_contact]").val().trim() ;
+            var mem1_name= $("input[name=mem1_name]").val().trim() ;
+            var mem2_email = $("input[name=mem2_email]").val().trim() ;
+            var mem2_USN = $("input[name=mem2_USN]").val().trim() ;
+            var mem2_contact = $("input[name=mem2_contact]").val().trim() ;
+            var mem2_name= $("input[name=mem2_name]").val().trim() ;
 
 
 
-            if (!(mem1_email.length && mem1_contact.length && mem1_name.length && mem1_USN.length && mem2_contact.length && mem2_email.length && mem2_USN.length && mem2_name.length)) {
-                    console.log($(this).val()) ;
 
-                    $(".alert-danger").show() ;
+            if (!(mem1_email.length && mem1_contact.length && mem1_name.length && mem1_USN.length && mem2_contact.length  && mem2_email.length && mem2_USN.length && mem2_name.length)) {
+                    $("#alertbox").fadeIn() ;
+                    return false ;
                 }
 
                 else{
 
                     if(!validateEmail(mem1_email))
-                    { $(".alert-danger").html("Email Address of Member 2 Invalid ! ") ; return ; }
+                    { $("#alertbox").html("Email Address of Member 1 Invalid ! ")
+                        $("#alertbox").fadeIn() ;; return false; }
 
                     if(!validateEmail(mem2_email))
-                    {$(".alert-danger").html("Email Address of Member 2 Invalid !") ;return ;}
-                    r = /[a-zA-Z0-9]/ ;
-                    if(!r.test(mem1_USN))
                     {
-                        alert("Invalid USN number of member 1 ") ;
+                        $("#alertbox").html("Email Address of Member 2 Invalid !") ;
+                        $("#alertbox").fadeIn() ;return false;
                     }
-                    if(!r.test(mem2_USN))
+                    r = /^[a-zA-Z0-9]*$/ ;
+
+                    if(!mem1_USN.match(r))
                     {
-                        alert("Invalid USN number of member 2") ;
+
+                        $("#alertbox").html("Invalid USN number of member 1 ") ;
+                        $("#alertbox").fadeIn() ;return false;
                     }
+
+                    if(!mem2_USN.match(r))
+                    {
+                        $("#alertbox").html("Invalid USN number of member 2") ;
+                        $("#alertbox").fadeIn() ;return false;
+
+                    }
+                    return true;
                 }
 
                 function validateEmail(email) {
