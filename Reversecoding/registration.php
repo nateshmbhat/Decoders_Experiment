@@ -89,9 +89,14 @@
     <form class='contactform' action="connect_to_database.php" id="registrationform" method="POST" onsubmit="return register_clicked();">
 
         <div class="text-center animated fadeInDownBig">
-            <h2 style="font-family: bitter;">Register</h2><br><br>
+            <h2 style="font-family: bitter;">Register</h2>
         </div>
-        <p class="h5 mb-4 text-center" style="font-family: bitter;font-size:200%;">                  Member 1</p>
+
+        <hr/><hr/><br/>
+
+
+        <div class="animated fadeInRight">
+        <p class="h5 mb-4" style="font-family: bitter;font-size:200%;">                  Member 1</p><br/><br/>
 
 
         <div class="md-form">
@@ -118,10 +123,14 @@
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
 
+        </div>
+
+    <hr/>
+
         <!-- Form contact -->
 </div>
-<div class="container" class="text-center">
-        <p class="h5 mb-5 text-center" style="font-family: bitter;font-size:200%;">                  Member 2</p>
+<div class="container animated fadeInLeft" class="text-center">
+        <p class="h5 mb-5" style="font-family: bitter;font-size:200%;">                  Member 2</p><br/><br/>
         <div class="md-form">
             <i class="fa fa-user prefix grey-text"></i>
             <input type="text" id="form3" name="mem2_name" style="width: 500px; padding: 2px;" class="form-control">
