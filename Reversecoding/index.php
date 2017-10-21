@@ -48,7 +48,7 @@
        <p>It uses utility classes for typography and spacing to space content out within the larger
            container.
        </p>
-       <button type="button" class="btn btn-yellow">REGISTER</button>
+       <button type="button" class="btn btn-yellow" onclick="loadregistrationpage()">REGISTER</button>
 
 		
 		<scirpt type="text/javasript">
@@ -140,11 +140,12 @@
 	<center>
 	<a href="../commonResources/docs/instructions.pdf" download><button type="button" class="btn btn-primary">Download instructions</button></a>
 
-
+		
         <button type="button" class="btn btn-primary" onclick="loadregistrationpage()">Register</button>
         <script>function loadregistrationpage() {
                 window.location= "registration.php" ;
             }</script>
+            
 <!--  <button type="button" class="btn btn-primary" onclick="location.href='indexTemp.php';">View problem statements and register</button> -->
 	</center>
 
