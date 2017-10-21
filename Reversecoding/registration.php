@@ -114,7 +114,7 @@
 
         <div class="md-form">
             <i class="fa fa-pencil prefix grey-text"></i>
-            <input type="text" id="form8" name="mem1_contact" class="md-textarea" style="height:50px;width: 500px; padding: 2px;"/>
+            <input type="number" id="form8" name="mem1_contact" class="md-textarea" style="height:50px;width: 500px; padding: 2px;"/>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
 
@@ -139,7 +139,7 @@
         </div>
         <div class="md-form">
             <i class="fa fa-pencil prefix grey-text"></i>
-            <input type="text" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;"/>
+            <input type="number" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;"/>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
 
@@ -192,6 +192,9 @@
         {
             $("#alertbox").hide() ;
 
+
+            submitallow = true ;
+
             var mem1_email = $("input[name=mem1_email]").val().trim() ;
 
             var mem1_USN = $("input[name=mem1_USN]").val().trim()
@@ -204,41 +207,62 @@
             var mem2_name= $("input[name=mem2_name]").val().trim() ;
 
 
-
-
             if (!(mem1_email.length && mem1_contact.length && mem1_name.length && mem1_USN.length && mem2_contact.length  && mem2_email.length && mem2_USN.length && mem2_name.length)) {
-                    $("#alertbox").fadeIn() ;
-                    return false ;
-                }
+
+                $("#alertbox").fadeIn() ;
+                return false ;
+            }
 
                 else{
 
-                    if(!validateEmail(mem1_email))
-                    { $("#alertbox").html("Email Address of Member 1 Invalid ! ")
-                        $("#alertbox").fadeIn() ;; return false; }
-
-                    if(!validateEmail(mem2_email))
+                    if(String(mem1_contact).search('e')>=0)
                     {
-                        $("#alertbox").html("Email Address of Member 2 Invalid !") ;
-                        $("#alertbox").fadeIn() ;return false;
+                        alertuser("Contact Number of Member 1 contains invalid character 'e'");
                     }
+
+                    else if(String(mem2_contact).search('e')>=0)
+                    {
+                        alertuser("Contact Number of Member 2 contains invalid character 'e'");
+                    }
+
+
+                else if(!validateEmail(mem1_email))
+                    { alertuser("Email Address of Member 1 Invalid ! ") ;}
+
+
+                else if(!validateEmail(mem2_email))
+                    {
+                        alertuser("Email Address of Member 2 Invalid !") ;
+                    }
+
                     r = /^[a-zA-Z0-9]*$/ ;
 
-                    if(!mem1_USN.match(r))
+                if(!mem1_USN.match(r))
                     {
-
-                        $("#alertbox").html("Invalid USN number of member 1 ") ;
-                        $("#alertbox").fadeIn() ;return false;
+                        alertuser("Invalid USN number of member 1 ") ;
                     }
 
-                    if(!mem2_USN.match(r))
+                 else if(!mem2_USN.match(r))
                     {
-                        $("#alertbox").html("Invalid USN number of member 2") ;
-                        $("#alertbox").fadeIn() ;return false;
-
+                        alertuser("Invalid USN number of member 2") ;
                     }
-                    return true;
+
+                    if(submitallow)
+                        return true;
+                    return false ;
+
                 }
+
+                function alertuser(msg)
+                {
+                    $("#alertbox").html(msg) ;
+                    $("#alertbox").fadeIn() ;
+                    submitallow = false ;
+
+                    return false;
+
+                }
+
 
                 function validateEmail(email) {
                     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -247,10 +271,6 @@
     }
 
 
-function validateEmail(email) {
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(email);
-} 
 
     </script>
 
