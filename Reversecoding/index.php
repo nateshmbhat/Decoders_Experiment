@@ -9,8 +9,8 @@
 
     <title>DeCoders - inSight 2K17</title>
 	<link rel="icon" href="../commonResources/img/title.png">
-    <?php include('../commonResources/includeCSS.php');?>
-    <?php require_once "../commonResources/includeScripts.php" ?>
+    <?php include('../commonResources/includeCSS.php');
+    ?>
 
 </head>
 <body>
@@ -31,9 +31,9 @@
    <div class="jumbotron container">
  
      <!--  <img src="C:\xampp\htdocs\img\decoder.jpg" class="img-fluid center-block pagination-centered" width="350" height="350" >-->
-       <h1 class="h1-responsive " id="heading_reversecode">REVERSE CODING</h1>
-       <h1 id="rules">Rules</h1>
-       <ul id="rules_list">
+       <h1 class="h1-responsive animated fadeIn" >REVERSE CODING</h1>
+       <h1>Rules</h1>
+       <ul>
          <li>mihbjnbh</li>
          <li>mihbjnbh</li>
          <li>mihbjnbh</li>
@@ -41,30 +41,21 @@
          <li>mihbjnbh</li>
        </ul>
  
+ 
        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
            to featured content or information.</p>
        <hr class="my-2">
        <p>It uses utility classes for typography and spacing to space content out within the larger
            container.
        </p>
+       <button type="button" class="btn btn-yellow">REGISTER</button>
+
+		
+		<scirpt type="text/javasript">
 
 
 
-       <button type="button" id="register_btn" class="btn btn-primary" onclick="loadregisterpage()">REGISTER</button>
-
-       <script>
-
-           function loadregisterpage()
-           {
-
-               window.location = "registration.php" ;
-
-           }
-
-
-       </script>
-
-
+		</scirpt>
 
    </div>
 
@@ -140,15 +131,15 @@
 <li style="list-style-type: circle">The teams will be disqualified if any kind of cheating is found.
 				</li>
 			<li style="list-style-type: circle">Decisions by our team will be final.</li>
-			<br>
-			<li style="list-style-type: circle; color:red;">Please download the detailed instructions about the event from the link below.</li>
+
+			<li style="list-style-type: circle; color:red;"><b>Please download the detailed instructions about the event from the link below.</b></li>
 			<!-- <li style="list-style-type: circle">You can register and view the problem statemets in the link below.</li> -->
 <!-- <li style="list-style-type: circle">We encourage students to submit proposals for more than one problems. This increases your chances of selection.</li> -->
 		</ol>
 	<br><br>
 	<center>
 	<a href="../commonResources/docs/instructions.pdf" download><button type="button" class="btn btn-primary">Download instructions</button></a>
-	<button type="button" class="btn btn-primary" onclick="location.href='registration.php';">Register</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='../Problem';">Register</button>
 <!--  <button type="button" class="btn btn-primary" onclick="location.href='indexTemp.php';">View problem statements and register</button> -->
 	</center>
 
