@@ -86,7 +86,7 @@
 <!-- Form contact -->
 <div class="container" class="text-center">
 
-    <form class='contactform' action="connect_to_database.php" id="registrationform" method="POST" onsubmit="return register_clicked();">
+    <form class='contactform' id="registrationform" method="POST" onsubmit="return register_clicked();">
 
         <div class="text-center animated fadeInDownBig">
             <h2 style="font-family: bitter;">Register</h2>
@@ -257,7 +257,7 @@
                     }
 
                     if(submitallow)
-                        return true;
+                        submitformdata() ;
 
                     else return false ;
 
@@ -278,6 +278,13 @@
                     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                     return re.test(email);
                 }
+    }
+
+
+    function submitformdata()
+    {
+        $.post("connect_to_database.php" , $("#registrationform").serialize())
+        return false ;
     }
 
 
