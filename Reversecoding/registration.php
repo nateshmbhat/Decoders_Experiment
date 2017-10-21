@@ -88,7 +88,7 @@
 
     <form class='contactform' action="connect_to_database.php" id="registrationform" method="POST" onsubmit="return register_clicked();">
 
-        <div class="text-center">
+        <div class="text-center animated fadeInDownBig">
             <h2 style="font-family: bitter;">Register</h2><br><br>
         </div>
         <p class="h5 mb-4 text-center" style="font-family: bitter;font-size:200%;">                  Member 1</p>
@@ -249,7 +249,8 @@
 
                     if(submitallow)
                         return true;
-                    return false ;
+
+                    else return false ;
 
                 }
 
