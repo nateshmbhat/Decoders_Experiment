@@ -226,34 +226,34 @@
 
                     if(String(mem1_contact).search('e')>=0)
                     {
-                        alertuser("Contact Number of Member 1 contains invalid character 'e'");
+                       alertuser("Contact Number of Member 1 contains invalid character 'e'"); return false ;
                     }
 
                     else if(String(mem2_contact).search('e')>=0)
                     {
-                        alertuser("Contact Number of Member 2 contains invalid character 'e'");
+                        alertuser("Contact Number of Member 2 contains invalid character 'e'"); return false ;
                     }
 
 
                 else if(!validateEmail(mem1_email))
-                    { alertuser("Email Address of Member 1 Invalid ! ") ;}
+                    { alertuser("Email Address of Member 1 Invalid ! ") ;return false ;}
 
 
                 else if(!validateEmail(mem2_email))
                     {
-                        alertuser("Email Address of Member 2 Invalid !") ;
+                        alertuser("Email Address of Member 2 Invalid !") ; return false ;
                     }
 
                     r = /^[a-zA-Z0-9]*$/ ;
 
                 if(!mem1_USN.match(r))
                     {
-                        alertuser("Invalid USN number of member 1 ") ;
+                        alertuser("Invalid USN number of member 1 ") ;return false ;
                     }
 
                  else if(!mem2_USN.match(r))
                     {
-                        alertuser("Invalid USN number of member 2") ;
+                        alertuser("Invalid USN number of member 2") ;return false ;
                     }
 
                     if(submitallow)
