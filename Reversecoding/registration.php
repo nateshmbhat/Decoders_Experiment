@@ -135,6 +135,7 @@
             <textarea type="text" id="form8" name="mem2_contact" class="md-textarea" style="height: 50px;width: 500px; padding: 2px;""/></textarea>
             <label for="form8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact No</label>
         </div>
+</div>
         <!--<div>
 
             <div id="alertbox" class="alert shake alert-danger" >

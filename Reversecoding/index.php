@@ -139,7 +139,12 @@
 	<br><br>
 	<center>
 	<a href="../commonResources/docs/instructions.pdf" download><button type="button" class="btn btn-primary">Download instructions</button></a>
-	<button type="button" class="btn btn-primary" onclick="location.href='../Problem';">Register</button>
+
+
+        <button type="button" class="btn btn-primary" onclick="loadregistrationpage()">Register</button>
+        <script>function loadregistrationpage() {
+                window.location= "registration.php" ;
+            }</script>
 <!--  <button type="button" class="btn btn-primary" onclick="location.href='indexTemp.php';">View problem statements and register</button> -->
 	</center>
 
