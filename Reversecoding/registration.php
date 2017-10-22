@@ -24,6 +24,8 @@
 
 <!--     INCLUDING THE REQUIRED GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Alike|Bitter|Cinzel|Nosifer|Roboto+Slab" rel="stylesheet">
+    
+
 <!---->
 
 
@@ -156,7 +158,7 @@
     <div>
 
         <div id="alertbox" class="alert shake alert-danger" >
-            <strong>Error !</strong> All the fields must be filled before submitting.
+            <strong>Error !</strong> All the fields must be filled before submitting.  <br/>
         </div>
 
     </div>
@@ -167,6 +169,27 @@
         <button class="btn btn-unique" type="submit" > Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
     </div>
 
+
+
+
+<!-- STARTING OF REGISTRATION SUCCESS PAGE -->
+
+    <div class="container registration_success">
+        
+    <div class="row">
+        
+    <div class="col-sm-7">
+        
+        <h2  class="animated fadeInDownBig alert-success alert "> Registration Successful ! </h2>
+    </div>
+
+        
+
+    </div>
+
+    </div>
+
+    
 </div>
 
 
@@ -193,6 +216,8 @@
 
     <!-- Form contact -->
    <script type="text/javascript">
+
+
 
        $("#alertbox").hide() ;
 
@@ -283,8 +308,10 @@
 
     function submitformdata()
     {
-        $.post("connect_to_database.php" , $("#registrationform").serialize())
-        return false ;
+        $.post("connect_to_database.php" , $("#registrationform").serialize()) ;
+
+
+
     }
 
 
