@@ -74,9 +74,9 @@
             <!-- Links -->
 
             <!-- Search form -->
-            <form class="form-inline">
+      <!--       <form class="form-inline">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </form>
+            </form> -->
         </div>
         <!-- Collapsible content -->
     </div>
@@ -176,9 +176,9 @@
 
 <!-- STARTING OF REGISTRATION SUCCESS PAGE -->
     
-            <div class="container col-sm-9 text-center animated zoomInUp" style="display: none;" id="registration_success_id">
+            <div class="container text-center animated zoomInUp" style="display: none;" id="registration_success_id">
                 
-                    <h2  class="alert-success alert "> Registration Successful ! </h2>
+                    <h2  class="alert-success alert text-center"> Registration Successful ! </h2>
             </div>
 
 
@@ -213,7 +213,6 @@
 
 
        $("#alertbox").hide() ;
-
 
 
         function register_clicked()
@@ -304,22 +303,61 @@
     }
 
 
+
+
+
     function submitformdata()
     {
         $.post("connect_to_database.php" , $("#registrationform").serialize()) ;
 
 
-        $("#member1_form").addClass("animated zoomOutLeft") ;
-        $("#member2_form").addClass("animated zoomOutRight") ;
+        $("#member1_form").addClass("animated zoomOutRight")
+           .on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+              $(this).hide() ;
+
+              setTimeout(hidemember2 ,500) ;
+
+           });
+
+            function hidemember2(){
+                
+                $("#member2_form").addClass("animated zoomOutLeft")
+                   .on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+                      $(this).hide() ;
+                   });
+
+                   setTimeout(hideheading , 500)  ;
+            }
+
+            function hideheading(){
+
+                
+                $("#Register_heading").addClass("animated zoomOutDown")
+                   .on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+                      $(this).hide() ;
+                   });
+
+                   $("hr").fadeOut();
+
+
+                setTimeout(showmemberdetails , 500) ;
+
+            }
 
 
 
-        $("#member1_form").hide() ;
-        $("#member2_form").hide() ;
-        $("#Register_heading").addClass("animated hinge");
-        $("#Register_heading").hide() ;
+            function showmemberdetails()
+            {
 
-        $("#registration_success_id").show() ;
+
+                $("#registration_success_id").show() ;
+
+            }
+
+
+
+
+
 
     }
 

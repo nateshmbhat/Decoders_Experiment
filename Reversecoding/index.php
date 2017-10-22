@@ -63,8 +63,12 @@
 
 <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline" rel="stylesheet">
 
+
+
 <h2 class="h2-responsive text-center fade-in" style="font-family: 'Fascinate Inline'">REVERSE CODING</h2>
-</div>
+
+<div class="container">
+
 <div class="row">
 <div class="col-md-6">
 	<h4 class="h4-responsive question" style="font-family:Arial;">What is Reverse Coding?</h4>
@@ -136,6 +140,8 @@
 			<!-- <li style="list-style-type: circle">You can register and view the problem statemets in the link below.</li> -->
 <!-- <li style="list-style-type: circle">We encourage students to submit proposals for more than one problems. This increases your chances of selection.</li> -->
 		</ol>
+
+	</div>
 	<br><br>
 	<center>
 	<a href="../commonResources/docs/instructions.pdf" download><button type="button" class="btn btn-primary">Download instructions</button></a>
