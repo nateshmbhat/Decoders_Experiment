@@ -24,6 +24,8 @@
 
 <!--     INCLUDING THE REQUIRED GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Alike|Bitter|Cinzel|Nosifer|Roboto+Slab" rel="stylesheet">
+    
+
 <!---->
 
 
@@ -72,9 +74,9 @@
             <!-- Links -->
 
             <!-- Search form -->
-            <form class="form-inline">
+      <!--       <form class="form-inline">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </form>
+            </form> -->
         </div>
         <!-- Collapsible content -->
     </div>
@@ -86,16 +88,20 @@
 <!-- Form contact -->
 <div class="container" class="text-center">
 
+
+   
+
     <form class='contactform' id="registrationform" method="POST" onsubmit="return register_clicked();">
 
-        <div class="text-center animated fadeInDownBig">
+        <div class="text-center animated fadeInDownBig" id="Register_heading">
             <h2 style="font-family: bitter;">Register</h2>
         </div>
 
         <hr/><hr/><br/>
 
+    
 
-        <div class="animated fadeInRight">
+        <div class="animated fadeInRight" id="member1_form">
         <p class="h5 mb-4" style="font-family: bitter;font-size:200%;">                  Member 1</p><br/><br/>
 
 
@@ -129,7 +135,7 @@
 
         <!-- Form contact -->
 </div>
-<div class="container animated fadeInLeft" class="text-center">
+<div class="container animated fadeInLeft" class="text-center" id="member2_form">
         <p class="h5 mb-5" style="font-family: bitter;font-size:200%;">                  Member 2</p><br/><br/>
         <div class="md-form">
             <i class="fa fa-user prefix grey-text"></i>
@@ -156,7 +162,7 @@
     <div>
 
         <div id="alertbox" class="alert shake alert-danger" >
-            <strong>Error !</strong> All the fields must be filled before submitting.
+            <strong>Error !</strong> All the fields must be filled before submitting.  <br/>
         </div>
 
     </div>
@@ -166,9 +172,27 @@
     <div>
         <button class="btn btn-unique" type="submit" > Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
     </div>
-
 </div>
 
+
+
+
+<!-- STARTING OF REGISTRATION SUCCESS PAGE -->
+    
+            <div class="container text-center animated zoomInUp" style="display: none;" id="registration_success_id">
+                
+                    <h2  class="alert-success alert  text-center z-depth-3" id="reg_success_heading"> Registration Successful ! </h2>
+            </div>
+
+
+     <div id="reversecoding_img">
+    
+    <img src="../commonResources/img/Reverse-Coding.jpg" class="container img-fluid z-depth-5" alt="1">
+
+    </div>
+       
+    
+<!-- ENDING OF REGISTRATION SUCCESS PAGE  -->
 
 
          <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
@@ -194,7 +218,10 @@
     <!-- Form contact -->
    <script type="text/javascript">
 
+
+
        $("#alertbox").hide() ;
+       $("#reversecoding_img").hide() ;
 
 
         function register_clicked()
@@ -257,9 +284,13 @@
                     }
 
                     if(submitallow)
-                        submitformdata() ;
+                        {
+                            submitformdata() ;
 
-                    else return false ;
+                        }
+
+
+                    return false ;
 
                 }
 
@@ -281,10 +312,63 @@
     }
 
 
+
+
+
     function submitformdata()
     {
-        $.post("connect_to_database.php" , $("#registrationform").serialize())
-        return false ;
+        $.post("connect_to_database.php" , $("#registrationform").serialize()) ;
+
+
+        $("#member1_form").addClass("animated zoomOutRight")
+           .on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+              $(this).hide() ;
+
+              setTimeout(hidemember2 ,500) ;
+
+           });
+
+            function hidemember2(){
+                
+                $("#member2_form").addClass("animated zoomOutLeft")
+                   .on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+                      $(this).hide() ;
+                   });
+
+                   setTimeout(hideheading , 500)  ;
+            }
+
+            function hideheading(){
+
+                
+                $("#Register_heading").addClass("animated zoomOutDown")
+                   .on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+                      $(this).hide() ;
+                   });
+
+                   $("hr").fadeOut();
+
+
+                setTimeout(showmemberdetails , 500) ;
+
+            }
+
+
+
+            function showmemberdetails()
+            {
+
+
+                $("#registration_success_id").show() ;
+                $("#reversecoding_img").addClass("animated flipInX").show() ;
+
+            }
+
+
+
+
+
+
     }
 
 
