@@ -88,6 +88,9 @@
 <!-- Form contact -->
 <div class="container" class="text-center">
 
+
+   
+
     <form class='contactform' id="registrationform" method="POST" onsubmit="return register_clicked();">
 
         <div class="text-center animated fadeInDownBig" id="Register_heading">
@@ -178,13 +181,18 @@
     
             <div class="container text-center animated zoomInUp" style="display: none;" id="registration_success_id">
                 
-                    <h2  class="alert-success alert text-center"> Registration Successful ! </h2>
+                    <h2  class="alert-success alert  text-center z-depth-3" id="reg_success_heading"> Registration Successful ! </h2>
             </div>
 
 
+     <div id="reversecoding_img">
+    
+    <img src="../commonResources/img/Reverse-Coding.jpg" class="container img-fluid z-depth-5" alt="1">
+
+    </div>
        
     
-
+<!-- ENDING OF REGISTRATION SUCCESS PAGE  -->
 
 
          <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
@@ -213,6 +221,7 @@
 
 
        $("#alertbox").hide() ;
+       $("#reversecoding_img").hide() ;
 
 
         function register_clicked()
@@ -351,6 +360,7 @@
 
 
                 $("#registration_success_id").show() ;
+                $("#reversecoding_img").addClass("animated flipInX").show() ;
 
             }
 
