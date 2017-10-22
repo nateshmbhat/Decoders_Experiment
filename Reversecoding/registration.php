@@ -90,14 +90,15 @@
 
     <form class='contactform' id="registrationform" method="POST" onsubmit="return register_clicked();">
 
-        <div class="text-center animated fadeInDownBig">
+        <div class="text-center animated fadeInDownBig" id="Register_heading">
             <h2 style="font-family: bitter;">Register</h2>
         </div>
 
         <hr/><hr/><br/>
 
+    
 
-        <div class="animated fadeInRight">
+        <div class="animated fadeInRight" id="member1_form">
         <p class="h5 mb-4" style="font-family: bitter;font-size:200%;">                  Member 1</p><br/><br/>
 
 
@@ -131,7 +132,7 @@
 
         <!-- Form contact -->
 </div>
-<div class="container animated fadeInLeft" class="text-center">
+<div class="container animated fadeInLeft" class="text-center" id="member2_form">
         <p class="h5 mb-5" style="font-family: bitter;font-size:200%;">                  Member 2</p><br/><br/>
         <div class="md-form">
             <i class="fa fa-user prefix grey-text"></i>
@@ -168,29 +169,21 @@
     <div>
         <button class="btn btn-unique" type="submit" > Register  <i class="fa fa-paper-plane-o ml-5"></i></button>
     </div>
+</div>
 
 
 
 
 <!-- STARTING OF REGISTRATION SUCCESS PAGE -->
-
-    <div class="container registration_success">
-        
-    <div class="row">
-        
-    <div class="col-sm-7">
-        
-        <h2  class="animated fadeInDownBig alert-success alert "> Registration Successful ! </h2>
-    </div>
-
-        
-
-    </div>
-
-    </div>
-
     
-</div>
+            <div class="container col-sm-9 text-center animated zoomInUp" style="display: none;" id="registration_success_id">
+                
+                    <h2  class="alert-success alert "> Registration Successful ! </h2>
+            </div>
+
+
+       
+    
 
 
 
@@ -220,6 +213,7 @@
 
 
        $("#alertbox").hide() ;
+
 
 
         function register_clicked()
@@ -282,9 +276,13 @@
                     }
 
                     if(submitallow)
-                        submitformdata() ;
+                        {
+                            submitformdata() ;
 
-                    else return false ;
+                        }
+
+
+                    return false ;
 
                 }
 
@@ -311,6 +309,17 @@
         $.post("connect_to_database.php" , $("#registrationform").serialize()) ;
 
 
+        $("#member1_form").addClass("animated zoomOutLeft") ;
+        $("#member2_form").addClass("animated zoomOutRight") ;
+
+
+
+        $("#member1_form").hide() ;
+        $("#member2_form").hide() ;
+        $("#Register_heading").addClass("animated hinge");
+        $("#Register_heading").hide() ;
+
+        $("#registration_success_id").show() ;
 
     }
 
