@@ -358,10 +358,8 @@
             function showmemberdetails()
             {
 
-
                 $("#registration_success_id").show() ;
-                $("#reversecoding_img").addClass("animated flipInX").show() ;
-
+                setTimeout(function(){$("#reversecoding_img").addClass("animated flipInX").show() ;} , 1000) ;
             }
 
 
